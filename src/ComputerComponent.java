@@ -1,4 +1,4 @@
-public abstract class ComputerComponent{
+public abstract class ComputerComponent {
     private String model;
     private String producer;
     private String serialNumber;
@@ -11,10 +11,6 @@ public abstract class ComputerComponent{
 
     @Override
     public String toString() {
-        return "ComputerComponent{" +
-                "model='" + model + '\'' +
-                ", producer='" + producer + '\'' +
-                ", serialNumber='" + serialNumber + '\'' +
-                '}';
+        return String.format("Model: %s; Producent: %s; Numer seryjny: %s.\n", model, producer, serialNumber);
     }
 }

@@ -1,4 +1,4 @@
-public class HardDrive extends ComputerComponent{
+public class HardDrive extends ComputerComponent {
     private int hardDriveCapacity;
 
     public HardDrive(String model, String producer, String serialNumber, int hardDriveCapacity) {
@@ -8,8 +8,6 @@ public class HardDrive extends ComputerComponent{
 
     @Override
     public String toString() {
-        return super.toString() +"HardDrive{" +
-                "hardDriveCapacity=" + hardDriveCapacity +
-                '}';
+        return super.toString() + String.format("Dysk twardy - pojemność dysku: %dGB", hardDriveCapacity);
     }
 }
