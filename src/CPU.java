@@ -1,7 +1,7 @@
-public class CPU extends Computer implements Overclocking{
+public class CPU extends ComputerComponent implements Overclocking {
     private int cpuClockSpeed;
     private double assumedTemperature;
-   private double maxSafeTemperature;
+    private final double maxSafeTemperature;
 
     public CPU(String model, String producer, String serialNumber, int cpuClockSpeed, double assumedTemperature, double maxSafeTemperature) {
         super(model, producer, serialNumber);
@@ -10,23 +10,26 @@ public class CPU extends Computer implements Overclocking{
         this.maxSafeTemperature = maxSafeTemperature;
     }
 
-    public double overclocking(int overcklock){
-        double temperatureChange = overcklock/100;
-        if (assumedTemperature + 10*temperatureChange<maxSafeTemperature){
-            cpuClockSpeed =+ overcklock;
-            return assumedTemperature += 10*temperatureChange;
-        }else {
-            System.out.println("Nie można podkręcić komponentu, ryzyko przegrzania.");
+
+    @Override
+    public double overclocking(int overcklock) {
+        double temperatureChange = overcklock / 100;
+        if (assumedTemperature + 10 * temperatureChange <= maxSafeTemperature) {
+            cpuClockSpeed = +overcklock;
+            return assumedTemperature += 10 * temperatureChange;
+        } else {
+            System.out.println("Nie można podkręcić komponentu o podaną wartość, ryzyko przegrzania.");
             return assumedTemperature;
         }
     }
 
     @Override
     public String toString() {
-        return super.toString()+ "CPU{" +
+        return super.toString() + "CPU{" +
                 "cpuClockSpeed=" + cpuClockSpeed +
                 ", assumedTemperature=" + assumedTemperature +
                 ", maxSafeTemperature=" + maxSafeTemperature +
                 '}';
     }
+
 }

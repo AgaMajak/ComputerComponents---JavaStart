@@ -1,9 +1,9 @@
-public abstract class Computer{
+public abstract class ComputerComponent{
     private String model;
     private String producer;
     private String serialNumber;
 
-    public Computer(String model, String producer, String serialNumber) {
+    public ComputerComponent(String model, String producer, String serialNumber) {
         this.model = model;
         this.producer = producer;
         this.serialNumber = serialNumber;
@@ -11,7 +11,7 @@ public abstract class Computer{
 
     @Override
     public String toString() {
-        return "Computer{" +
+        return "ComputerComponent{" +
                 "model='" + model + '\'' +
                 ", producer='" + producer + '\'' +
                 ", serialNumber='" + serialNumber + '\'' +
