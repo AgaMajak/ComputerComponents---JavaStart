@@ -1,8 +1,16 @@
-public class RAM extends ComputerComponent implements Overclocking {
-    int ramClockSpeed;
-    int memoryCapacity;
-    double assumedTemperature;
-    double maxSafeTemperature;
+public class RAM extends Computer implements Overclocking {
+    private int ramClockSpeed;
+    private int memoryCapacity;
+    private double assumedTemperature;
+    private double maxSafeTemperature;
+
+    public RAM(String model, String producer, String serialNumber, int ramClockSpeed, int memoryCapacity, double assumedTemperature, double maxSafeTemperature) {
+        super(model, producer, serialNumber);
+        this.ramClockSpeed = ramClockSpeed;
+        this.memoryCapacity = memoryCapacity;
+        this.assumedTemperature = assumedTemperature;
+        this.maxSafeTemperature = maxSafeTemperature;
+    }
 
     @Override
     public double overclocking(int overcklock){
@@ -16,4 +24,13 @@ public class RAM extends ComputerComponent implements Overclocking {
        }
     }
 
+    @Override
+    public String toString() {
+        return super.toString()+ "RAM{" +
+                "ramClockSpeed=" + ramClockSpeed +
+                ", memoryCapacity=" + memoryCapacity +
+                ", assumedTemperature=" + assumedTemperature +
+                ", maxSafeTemperature=" + maxSafeTemperature +
+                '}';
+    }
 }

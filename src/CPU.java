@@ -1,7 +1,14 @@
-public class CPU extends ComputerComponent implements Overclocking{
-    int cpuClockSpeed;
-    double assumedTemperature;
-    double maxSafeTemperature;
+public class CPU extends Computer implements Overclocking{
+    private int cpuClockSpeed;
+    private double assumedTemperature;
+   private double maxSafeTemperature;
+
+    public CPU(String model, String producer, String serialNumber, int cpuClockSpeed, double assumedTemperature, double maxSafeTemperature) {
+        super(model, producer, serialNumber);
+        this.cpuClockSpeed = cpuClockSpeed;
+        this.assumedTemperature = assumedTemperature;
+        this.maxSafeTemperature = maxSafeTemperature;
+    }
 
     public double overclocking(int overcklock){
         double temperatureChange = overcklock/100;
@@ -14,4 +21,12 @@ public class CPU extends ComputerComponent implements Overclocking{
         }
     }
 
+    @Override
+    public String toString() {
+        return super.toString()+ "CPU{" +
+                "cpuClockSpeed=" + cpuClockSpeed +
+                ", assumedTemperature=" + assumedTemperature +
+                ", maxSafeTemperature=" + maxSafeTemperature +
+                '}';
+    }
 }
